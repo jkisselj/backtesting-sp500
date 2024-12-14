@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+
+numpy_data = np.array([
+    [1, 'Blue', [1, 2], 1.1],
+    [3, 'Red', [3, 4], 2.2],
+    [5, 'Pink', [5, 6], 3.3],
+    [7, 'Grey', [7, 8], 4.4],
+    [9, 'Black', [9, 10], 5.5]
+], dtype=object)
+
+# Создание DataFrame
+df_from_numpy = pd.DataFrame(numpy_data, columns=['color', 'list', 'number'])
+
+Pandas Series
+
+color_series = pd.Series([1, 3, 5, 7, 9])
+list_series = pd.Series([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+number_series = pd.Series([1.1, 2.2, 3.3, 4.4, 5.5])
+
+Panda DataFrame
+df_from_series = pd.DataFrame({
+    'color': color_series,
+    'list': list_series,
+    'number': number_series
+})
+
+print("data type from NumPy:")
+print(df_from_numpy.dtypes)
+
+print("\ndata type from  Series):")
+print(df_from_series.dtypes)
+
+print("\ndata type first element from  NumPy:")
+for column in df_from_numpy.columns:
+    print(f"{column}: {type(df_from_numpy[column].iloc[0])}")
+
+print("\ndata type first element from Series:")
+for column in df_from_series.columns:
+    print(f"{column}: {type(df_from_series[column].iloc[0])}")
